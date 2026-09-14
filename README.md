@@ -1,116 +1,98 @@
-<div align="center"><b><h1>### In Production ###</h1></b></div>
-<div align="center"><b><h1># React ThreeJS Vite Boilerplate #</h1></b></div>
-<div align="center"><b>Create by KhunGnok</b></div>
+# Parkhub Web
 
-**_<p>About this boilerplate</P>_**
-React + ViteJS Typscript boilerplate that able to display 3d scene by [ThreeJS](https://threejs.org/). This project base on Domain Driven Design (DDD). So that, Routes will be in `frontend/domain`. Compoent used globally put in `global/component`. API caller in `API`.
+Parkhub is a Parking Digital Twin and management dashboard. It gives an executive-grade interface for configuring parking areas, monitoring live camera/session feeds, and reviewing analytics on occupancy, arrival rates, and lot performance — combining 2D dashboards with 3D scene visualization.
 
-# Quick start
+## Tech Stack
 
-**1. Install Nessessory Vs Code Extension**
+* **Framework:** React 19, Vite 8
+* **Language:** TypeScript
+* **Styling:** WindiCSS (Tailwind-compatible), Sass
+* **State Management:** Zustand
+* **Routing:** React Router DOM
+* **3D & Visualization:** Three.js, Recharts
+* **Internationalization:** i18next, react-i18next
+* **Backend:** Firebase
+* **Utilities:** SweetAlert2, React Icons
 
-be sure you have install Vs Code Extension to gain fully project feature.
+## Architecture
 
-| Name                      | Link                                                                          | Note                           |
-| ------------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
-| ESlint                    | https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint    |                                |
-| Prettier - Code formatter | https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode    | Code Fomatter                  |
-| Tailwind CSS IntelliSense | https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss | Tailwind CSS coding suggestion |
+The project follows a layered, Domain-Driven Design (DDD) structure:
 
-**2. Follow**
+* `src/core/` — Application bootstrap, layouts, and middleware.
+  * `src/core/api/` — Data access layer; all API callers and network logic.
+  * `src/core/app/`, `src/core/middleware/` — Core routing, layouts, and system-level middleware.
+* `src/frontend/domain/` — Business logic layer, split into isolated feature modules (e.g. `p002-login`, `p004-area-detail`, `p009-area-analytics`), each owning its own routes, views, and local state.
+* `src/frontend/global/` — Shared resources used across domains:
+  * `components/` — Reusable UI components.
+  * `hook/` — Shared custom React hooks.
+  * `store/` — Global Zustand stores.
+  * `helper/` — Utility functions.
+* `src/types/` — Global TypeScript types and interfaces.
 
-1. Make sure that you have installed NodeJS and npm.
-2. Clone / Download this repo.
-3. Move to directory `cd <project-directory>`
-4. Edit project-name in `package.json` file
-5. Run `npm install`
-6. Done 😀
+See [AGENT.md](AGENT.md) for full conventions and agent operating rules.
 
-# NPM Package
+## Getting Started
 
-dependencies:
+### Prerequisites
 
-| Name                             | Version | Note |
-| -------------------------------- | ------- | ---- |
-| React                            | 18.2.0  |      |
-| React-dom                        | 18.2.0  |      |
-| react-icons                      | 5.2.1   |      |
-| axios                            | 1.7.2   |      |
-| axios                            | 1.7.2   |
-| firebase                         | 10.12.2 |
-| i18next                          | 23.11.5 |
-| i18next-browser-languagedetector | 8.0.0   |
-| react                            | 18.2.0  |
-| react-dom                        | 18.2.0  |
-| react-i18next                    | 14.1.2  |
-| react-icons                      | 5.2.1   |
-| react-router-dom                 | 6.23.1  |
-| sass                             | 1.77.4  |
-| zustand                          | 4.5.2   |
+* Node.js and npm
+* Recommended VS Code extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-devDependencies
+### Setup
 
-| Name                             | Version | Note                 |
-| -------------------------------- | ------- | -------------------- |
-| @types/...                       |         | All type as possible |
-| eslint                           | 8.57.0  |                      |
-| eslint-config-prettier           | 9.1.0   |                      |
-| eslint-plugin-check-file         | 2.8.0   |                      |
-| eslint-plugin-import             | 2.29.1  |                      |
-| eslint-plugin-jsx-a11y           | 6.8.0   |                      |
-| eslint-plugin-prettier           | 5.1.3   |                      |
-| eslint-plugin-react              | 7.34.1  |                      |
-| eslint-plugin-react-hooks        | 4.6.0   |                      |
-| eslint-plugin-react-refresh      | 0.4.6   |                      |
-| eslint-plugin-simple-import-sort | 12.1.0  |                      |
-| eslint-plugin-unicorn            | 53.0.0  |                      |
-| prettier                         | 3.2.5   |                      |
-| typescript                       | 5.2.2   |                      |
-| vite                             | 5.2.0   |                      |
-| vite-plugin-windicss             | 1.9.3   |                      |
-| windicss                         | 3.5.6   |                      |
+```bash
+# Install dependencies
+npm install
 
-# How to use
-
-document
-
-> Comming soon 😏
-
-run dev
-
-```node
-npm run start
+# Copy environment variables and fill in your Firebase credentials
+cp .env.example .env
 ```
 
-run build
+### Development
 
-```node
+```bash
+npm run dev
+```
+
+### Build & Preview
+
+```bash
 npm run build
+npm run preview
 ```
 
-# Blessing
+### Linting & Formatting
 
+```bash
+npm run lint:fix    # Fix ESLint errors
+npm run lint:format # Format code with Prettier
+npm run lint         # Run both
 ```
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//               Buddha Blessing NO BUG
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-```
+
+## Environment Variables
+
+Configuration is managed via `.env` (see [.env.example](.env.example)):
+
+* `VITE_DEBUG_*` — Debug flags (strict mode, mocking, i18n middleware logging).
+* `VITE_FIREBASE_CRED_*` — Firebase project credentials.
+* `VITE_FIREBASE_CONFIG_FUNCTION_REGION` — Firebase Functions region.
+* `VITE_FIREBASE_CRED_WEB_PUSH` — Web push notification key.
+* `VITE_TEST_*` — Test account credentials for local/dev use.
+
+## API Documentation
+
+* [Analytics API](ANALYTICS_API.md)
+* [Latest Slots Status API](LATEST_SLOTS_STATUS_API.md)
+
+## Conventions
+
+* Folders and files: `kebab-case`
+* Variables/functions: `camelCase`
+* Components, types, interfaces: `PascalCase`
+* Prefer interfaces over type aliases for object shapes
+* Feature logic belongs in `src/frontend/domain/`; shared UI belongs in `src/frontend/global/components/`
+* Use WindiCSS utility classes over inline styles; reserve semantic colors (red/green/yellow) for status indicators
+
+## License
+
+See [LICENSE](LICENSE).
