@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Neutral Palette */
+  --color-page-bg:       #F8FAFC; /* slate-50  — page background */
+  --color-card-bg:       #FFFFFF; /* white     — card / panel background */
+  --color-border:        #E2E8F0; /* slate-200 — default border */
+  --color-border-subtle: #F1F5F9; /* slate-100 — dividers */
+
+  /* Text scale */
+  --color-text-primary:  #1E293B; /* slate-800 */
+  --color-text-secondary:#475569; /* slate-600 */
+  --color-text-muted:    #94A3B8; /* slate-400 */
+  --color-text-label:    #64748B; /* slate-500 */
+
+  /* Steel-blue accent */
+  --color-accent:        #3B82F6; /* blue-500  */
+  --color-accent-light:  #EFF6FF; /* blue-50   */
+  --color-accent-dark:   #1D4ED8; /* blue-700  */
+
+  /* Semantic — parking status ONLY */
+  --color-status-available: #22C55E; /* green-500 */
+  --color-status-occupied:  #EF4444; /* red-500   */
+  --color-status-reserved:  #F59E0B; /* amber-500 */
+
+  /* Chart palette */
+  --color-chart-primary:   #3B82F6; /* blue-500   */
+  --color-chart-secondary: #0EA5E9; /* sky-500    */
+  --color-chart-grid:      #E2E8F0; /* slate-200  */
+  --color-chart-axis:      #64748B; /* slate-500  */
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-page-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────────── */
+h1 {
+  font-weight: 700;
+  font-size: 1.375rem; /* 22px */
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 0.9375rem; /* 15px */
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ── Section Tag (10px uppercase, steel-blue) ─────────────────────────────── */
+.section-tag {
+  font-size: 0.625rem;   /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+
+/* ── Shared Button Styles ─────────────────────────────────────────────────── */
+.button {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  outline: none;
+  padding: 7px 14px;
+  text-align: center;
+  transition: all 120ms ease;
+  user-select: none;
+}
+
+.button:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.button-primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.button-danger {
+  background-color: #EF4444;
+  border-color: #DC2626;
+  color: #fff;
+}
+
+.button-danger:hover {
+  background-color: #DC2626;
+}
+
+/* ── Sidebar Item ─────────────────────────────────────────────────────────── */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 120ms ease;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  border-left: 2px solid transparent;
+}
+
+.sidebar-item:hover {
+  background-color: #F8FAFC;
+  color: var(--color-text-primary);
+}
+
+.sidebar-item.active {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-dark);
+  border-left-color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ── Animations ───────────────────────────────────────────────────────────── */
+.pop-in {
+  position: absolute;
+  bottom: -300px;
+  animation-name: animatebottom;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animatebottom {
+  from { bottom: -300px; opacity: 0; }
+  to   { bottom: 0; opacity: 1; position: relative; }
+}
+
+/* ── Analytics page override (ensure light bg) ─────────────────────────────── */
+.analytics-gradient-text {
+  color: var(--color-text-primary);
+}
+
+
+
